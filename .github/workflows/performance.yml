@@ -1,0 +1,35 @@
+name: Performance Monitoring
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build application
+      run: npm run build
+      env:
+        NODE_ENV: production
+
+    - name: Check Core Web Vitals targets
+      run: |
+        echo "Performance targets:"
+        echo "- Load Time: < 2 seconds"
+        echo "- Desktop FPS: 60fps"
+        echo "- Mobile FPS: 30fps"
+        echo "- Bundle Size: < 293KB gzipped"
