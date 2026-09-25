@@ -11,6 +11,10 @@ React 18 + TypeScript + Three.js, built with Vite 7. This is a product concept u
 
 See [the reconciled plan](docs/EXECUTION-PLAN.md) and [dated evidence](evidence/2026-09-25/phase2-and-verified-plan/README.md) for actual checks, source-plan conflicts, and remaining gates.
 
+## GTM operating concept
+
+The [five-function operating model](docs/gtm-operating-model.md) maps the GTM team infographic to a proposed CEO-led process for Hossain Consulting. It specifies responsibilities and approval gates without adopting a software stack. It is planning material, not evidence of staffed roles or a live sales system.
+
 ## Run locally
 
 Use Node 22.12+ (CI uses Node 22).
