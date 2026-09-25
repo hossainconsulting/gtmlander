@@ -40,6 +40,12 @@ The production browser tests use port 4317. Unit tests run once, not in watch mo
 
 The gzip gates enforce 293,000 bytes for initial content and all emitted JS/CSS. Initial accounting includes the immediately loaded Hero; the full total includes the lazy graphics chunk. Lighthouse Phase 2 gates are performance >=85, accessibility >=95, LCP <=2.5s and CLS <=0.1. Performance >90 is the later release target.
 
-FPS, real-device load time, conversion rates, revenue and full WCAG compliance are not established by these checks. A large uncompressed Three.js chunk still generates a Vite advisory, although the gzip gate measures it. Guided demo, onboarding, real CRM/service integrations, detailed scene assets, measured coverage and approved deployment remain backlog.
+FPS, real-device load time, conversion rates, revenue and full WCAG compliance are not established by these checks. A large uncompressed Three.js chunk still generates a Vite advisory, although the gzip gate measures it. Guided demo, onboarding, real CRM/service integrations, detailed scene assets, measured coverage and production-readiness acceptance remain backlog.
 
 The original [architecture outline](ARCHITECTURE.md) describes planned scope, not completion. The reconciled plan takes precedence for status and validation.
+
+## Deployment and AI assistance
+
+The existing Vercel integration deployed the prototype after [PR #1](https://github.com/hossainconsulting/gtmlander/pull/1) merged. [CI passed on the merge commit](https://github.com/hossainconsulting/gtmlander/actions/runs/36137462156). Deployment does not mean the planned lead-processing service is complete.
+
+OpenAI Codex assisted with the progressive Three.js Hero, CI repairs, automated validation, and evidence-based documentation. Hemayet Hossain directed the work and approved the merge. This documentation update records Codex co-authorship without changing historical commit attribution.
