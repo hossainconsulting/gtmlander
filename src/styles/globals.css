@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #0A1428 0%, #0f1f35 100%);
+  background: linear-gradient(135deg, #0a1428 0%, #0f1f35 100%);
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
@@ -51,5 +51,185 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+.hero-section {
+  max-width: 1440px;
+  margin: auto;
+  padding: 90px 40px 70px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-eyebrow {
+  color: #78d9e8;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  margin-bottom: 30px;
+}
+.hero-copy h1 {
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+}
+.hero-summary {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #aabacc;
+  max-width: 480px;
+  margin: 28px 0;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  font-size: 14px;
+}
+.primary-link {
+  background: #00d9ff;
+  color: #0a1428;
+  padding: 16px 20px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+.primary-link span {
+  margin-left: 16px;
+}
+.hero-note {
+  font-size: 12px;
+  color: #90a4b9;
+  margin-top: 22px;
+}
+.nexus-panel {
+  border: 1px solid #244057;
+  border-radius: 18px;
+  background: radial-gradient(ellipse at 50% 35%, #13354d, #0b192d 68%);
+  overflow: hidden;
+}
+.nexus-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #aabacc;
+}
+.nexus-caption button {
+  color: #78d9e8;
+  text-decoration: underline;
+}
+.nexus-canvas {
+  height: 320px;
+}
+.nexus-stages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #244057;
+}
+.nexus-stages button {
+  padding: 15px 8px;
+  text-align: left;
+  font-size: 11px;
+  color: #aabacc;
+}
+.nexus-stages button span {
+  display: block;
+  color: #78d9e8;
+  margin-bottom: 7px;
+  font-family: monospace;
+}
+.nexus-stages button[aria-pressed='true'] {
+  background: #174056;
+  color: white;
+  box-shadow: inset 0 2px #00d9ff;
+}
+.nexus-description {
+  min-height: 66px;
+  padding: 16px 20px;
+  font-size: 12px;
+  color: #b9c8d7;
+  border-top: 1px solid #244057;
+}
+.nexus-static {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 20px auto;
+  border: 1px solid #38657c;
+  border-radius: 50%;
+  transform: rotate(-15deg);
+}
+.nexus-static > span {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  inset: 60px;
+  border-radius: 50%;
+  color: #a8f2ff;
+  border: 1px solid #00d9ff;
+  background: radial-gradient(circle at 35% 30%, #276377, #072d45 70%);
+  box-shadow: 0 0 45px #00d9ff25;
+  transform: rotate(15deg);
+}
+.node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #312c62;
+  border: 1px solid #9b83ff;
+  font: 12px monospace;
+}
+.node-0 {
+  top: -18px;
+  left: 112px;
+}
+.node-1 {
+  right: -18px;
+  top: 112px;
+}
+.node-2 {
+  bottom: -18px;
+  left: 112px;
+}
+.node-3 {
+  left: -18px;
+  top: 112px;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 5px;
+}
+section {
+  scroll-margin-top: 90px;
+}
+@media (max-width: 900px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 55px 24px;
+  }
+  .hero-copy {
+    max-width: 600px;
+  }
+  .nexus-panel {
+    max-width: 650px;
+    width: 100%;
+  }
+  .hero-copy h1 {
+    font-size: clamp(42px, 8vw, 64px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

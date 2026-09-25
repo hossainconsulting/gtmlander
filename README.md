@@ -1,77 +1,45 @@
-# GTM Agents Landing Page
+# GTM Agents landing-page prototype
 
-AI-powered lead qualification and sales orchestration platform. Production-ready React 18.2 + Three.js landing page with 4-tier workflow automation.
+React 18 + TypeScript + Three.js, built with Vite 7. This is a product concept under development, not a live lead-processing service.
 
-**Status:** Phase 1 Foundation (Sept 2026)
-**Tech Stack:** React 18.2, Three.js r164, Vite 5, TypeScript 5, Tailwind CSS 3.4
-**Performance Target:** <2s load, 60fps desktop, <293KB gzipped
+## Current increment
 
-## Quick Start
+- Lazy-loaded procedural Hero with orbit/pulse animation and scroll camera movement.
+- Keyboard-accessible workflow stages outside the canvas, with reduced-motion, WebGL-failure and low-frame-rate fallback.
+- Responsive core sections and a four-stage solution diagram.
+- Real CI checks and reproducible dependency lockfile; measured gzip budget and desktop/mobile Chromium tests.
 
-```bash
-npm install              # Install dependencies
-npm run dev             # Start dev server (http://localhost:5173)
-npm run build           # Production build
-npm run preview         # Preview production build
-npm run type-check      # TypeScript validation
-npm run lint            # ESLint validation
-npm run format          # Format code with Prettier
-npm test                # Run unit tests
+See [the reconciled plan](docs/EXECUTION-PLAN.md) and [dated evidence](evidence/2026-09-25/phase2-and-verified-plan/README.md) for actual checks, source-plan conflicts, and remaining gates.
+
+## Run locally
+
+Use Node 22.12+ (CI uses Node 22).
+
+```sh
+npm ci
+npm run dev
+npm run type-check
+npm run lint
+npm run format:check
+npm test
+npm run build
+npm run budget
+npx playwright install chromium
+npm run test:e2e
 ```
 
-## Architecture
+The production browser tests use port 4317. Unit tests run once, not in watch mode. Browser screenshots are written to test-results/.
 
-### 7-Layer Specification
-1. UX Concept — Messaging strategy
-2. Interactive Demo — 3D scene showcase
-3. Onboarding Flow — 15-min trial setup
-4. 3D Technical Spec — Tier-by-tier details
-5. Performance Optimization — <2s load time
-6. Conversion Architecture — Multi-tier pricing
-7. Engineering Build Brief — Full stack deployment
+## Workflows
 
-### Components
+- `ci.yml`: type checking, lint, formatting, unit tests, build, gzip budgets and browser tests. Failures block the job.
+- `performance.yml`: three Lighthouse mobile lab runs with assertions and downloadable reports on PRs, weekly, or manual dispatch.
+- `deploy.yml`: manual **release build artifact only**. It does not deploy; the former workflow name was misleading.
 
-**Layout:** Header, Footer
-**Sections:** Hero, Problem, Solution, Features, FAQ, Pricing
+## Targets versus results
 
-### Tech Stack
-- React 18.2 with Suspense
-- Three.js r164 with @react-three/fiber
-- Vite 5 with code splitting
-- TypeScript 5 strict mode
-- Tailwind CSS 3.4
-- ESLint + Prettier
+The gzip gates enforce 293,000 bytes for initial content and all emitted JS/CSS. Initial accounting includes the immediately loaded Hero; the full total includes the lazy graphics chunk. Lighthouse Phase 2 gates are performance >=85, accessibility >=95, LCP <=2.5s and CLS <=0.1. Performance >90 is the later release target.
 
-## Performance Targets
+FPS, real-device load time, conversion rates, revenue and full WCAG compliance are not established by these checks. A large uncompressed Three.js chunk still generates a Vite advisory, although the gzip gate measures it. Guided demo, onboarding, real CRM/service integrations, detailed scene assets, measured coverage and approved deployment remain backlog.
 
-| Metric | Target | Status |
-|--------|--------|--------|
-| Load Time (LCP) | < 2 seconds | ✅ Configured |
-| Bundle Size | < 293KB gzipped | ✅ Configured |
-| Desktop FPS | 60fps | ✅ Configured |
-| Mobile FPS | 30fps | ✅ Phase 2 (LOD) |
-| Lighthouse | 90+ | ✅ Configured |
-
-## GitHub Actions CI/CD
-
-- **ci.yml** — TypeScript, ESLint, tests, build, bundle size
-- **performance.yml** — Weekly Lighthouse monitoring
-- **deploy.yml** — Vercel production deployment
-
-## Next Steps
-
-1. Install dependencies: `npm install`
-2. Start dev server: `npm run dev`
-3. Push to GitHub (see PUSH_TO_GITHUB.md)
-4. Phase 2: 3D Hero scene implementation
-
-## Documentation
-
-- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — Technical specs
-- [`PUSH_TO_GITHUB.md`](./PUSH_TO_GITHUB.md) — GitHub setup
-
----
-
-**Phase 1 Foundation: COMPLETE** ✅
-Ready for development.
+The original [architecture outline](ARCHITECTURE.md) describes planned scope, not completion. The reconciled plan takes precedence for status and validation.

@@ -21,7 +21,7 @@ export default function Features() {
   return (
     <section id="pricing" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">One Platform. Multiple Tiers. Pick Your Level.</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">Compare the proposed plans</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           {tiers.map((tier, index) => (
@@ -34,7 +34,10 @@ export default function Features() {
               }`}
             >
               <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-              <p className="text-3xl font-bold text-brand-cyan mb-6">{tier.price}<span className="text-sm text-gray-400">/mo</span></p>
+              <p className="text-3xl font-bold text-brand-cyan mb-6">
+                {tier.price}
+                <span className="text-sm text-gray-400">/mo</span>
+              </p>
               <ul className="space-y-3 mb-8">
                 {tier.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-2">
@@ -43,13 +46,16 @@ export default function Features() {
                   </li>
                 ))}
               </ul>
-              <button className={`w-full py-3 rounded-lg font-bold transition ${
-                tier.highlighted
-                  ? 'bg-brand-cyan text-brand-navy hover:shadow-lg hover:shadow-brand-cyan/50'
-                  : 'border border-brand-cyan text-brand-cyan hover:bg-brand-cyan/10'
-              }`}>
-                Start Free
-              </button>
+              <a
+                href="#solution"
+                className={`block text-center w-full py-3 rounded-lg font-bold transition ${
+                  tier.highlighted
+                    ? 'bg-brand-cyan text-brand-navy hover:shadow-lg hover:shadow-brand-cyan/50'
+                    : 'border border-brand-cyan text-brand-cyan hover:bg-brand-cyan/10'
+                }`}
+              >
+                Explore workflow
+              </a>
             </div>
           ))}
         </div>

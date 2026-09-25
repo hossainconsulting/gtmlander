@@ -4,13 +4,16 @@ export default function Pricing() {
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Ready to Capture Every Lead?</h2>
         <p className="text-xl text-gray-300 mb-8">
-          Start free. No credit card. 14-day trial.
+          Explore how four connected stages could support your service team.
         </p>
-        <button className="px-8 py-4 bg-brand-cyan text-brand-navy font-bold text-lg rounded-lg hover:shadow-xl hover:shadow-brand-cyan/50 transition">
-          Start Your Free Trial
-        </button>
+        <a
+          href="#solution"
+          className="px-8 py-4 bg-brand-cyan text-brand-navy font-bold text-lg rounded-lg hover:shadow-xl hover:shadow-brand-cyan/50 transition"
+        >
+          Explore the four stages
+        </a>
         <p className="text-sm text-gray-400 mt-4">
-          You're 15 minutes away from processing your first lead.
+          Product concept. Signup and service integrations are not yet available.
         </p>
       </div>
     </section>

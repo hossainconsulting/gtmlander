@@ -1,0 +1,100 @@
+Local validation on Windows, Node 24.21.0; production build tested in Chromium desktop/mobile emulation.
+Command: npm run type-check
+
+> gtmlander@1.0.0 type-check
+> tsc --noEmit
+
+Exit: 0
+Command: npm run lint
+
+> gtmlander@1.0.0 lint
+> eslint src --ext .ts,.tsx
+
+Exit: 0
+Command: npm run format:check
+
+> gtmlander@1.0.0 format:check
+> prettier --check "src/**/*.{ts,tsx,css}"
+
+Checking formatting...
+All matched files use Prettier code style!
+Exit: 0
+Command: npm run test
+
+> gtmlander@1.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 <repository>
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  21:03:46
+   Duration  583ms (transform 74ms, setup 0ms, import 117ms, tests 9ms, environment 0ms)
+
+Exit: 0
+Command: npm run build
+
+> gtmlander@1.0.0 build
+> vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 59 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                       0.65 kB │ gzip:   0.39 kB
+dist/.vite/manifest.json              0.79 kB │ gzip:   0.27 kB
+dist/assets/index-C5djVUVv.css       15.85 kB │ gzip:   3.96 kB
+dist/assets/Hero-D2wf0acG.js          3.38 kB │ gzip:   1.60 kB
+dist/assets/index-CTHxHC9a.js       149.63 kB │ gzip:  48.42 kB
+dist/assets/NexusScene-BkqEZYkz.js  802.22 kB │ gzip: 209.66 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 6.08s
+Exit: 0
+Command: npm run budget
+
+> gtmlander@1.0.0 budget
+> node scripts/check-budget.mjs
+
+{
+  "initialGzipBytes": 54365,
+  "allJsCssGzipBytes": 263636,
+  "initialLimit": 293000,
+  "totalLimit": 293000,
+  "initialFiles": [
+    "index.html",
+    "assets/index-CTHxHC9a.js",
+    "assets/index-C5djVUVv.css",
+    "assets/Hero-D2wf0acG.js"
+  ]
+}
+Exit: 0
+Command: npm run test:e2e
+
+> gtmlander@1.0.0 test:e2e
+> playwright test
+
+[WebServer] (node:28208) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 2 workers
+
+(node:29428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28532) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop] › tests\browser\hero.spec.ts:2:1 › reduced-motion workflow is accessible, responsive, and avoids 3D download (11.2s)
+  ok 3 [desktop] › tests\browser\hero.spec.ts:26:1 › WebGL failure keeps stage controls available (328ms)
+  ok 4 [desktop] › tests\browser\hero.spec.ts:33:1 › animated scene renders and can be switched to static (831ms)
+  ok 2 [mobile] › tests\browser\hero.spec.ts:2:1 › reduced-motion workflow is accessible, responsive, and avoids 3D download (12.8s)
+  ok 5 [mobile] › tests\browser\hero.spec.ts:26:1 › WebGL failure keeps stage controls available (339ms)
+  ok 6 [mobile] › tests\browser\hero.spec.ts:33:1 › animated scene renders and can be switched to static (954ms)
+
+  6 passed (19.0s)
+Exit: 0
