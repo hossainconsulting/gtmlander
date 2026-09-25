@@ -1,0 +1,35 @@
+[
+  {
+    "report": "lhr-1790334150549.json",
+    "fetchTime": "2026-09-25T11:02:20.981Z",
+    "lighthouseVersion": "12.6.1",
+    "performance": 0.88,
+    "accessibility": 1,
+    "LCP_ms": 2438.0371999999998,
+    "CLS": 0.005629909498742541,
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate"
+  },
+  {
+    "report": "lhr-1790334165666.json",
+    "fetchTime": "2026-09-25T11:02:35.893Z",
+    "lighthouseVersion": "12.6.1",
+    "performance": 0.9,
+    "accessibility": 1,
+    "LCP_ms": 2429.9332,
+    "CLS": 0.005629909498742541,
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate"
+  },
+  {
+    "report": "lhr-1790334179190.json",
+    "fetchTime": "2026-09-25T11:02:49.761Z",
+    "lighthouseVersion": "12.6.1",
+    "performance": 0.9,
+    "accessibility": 1,
+    "LCP_ms": 2428.6992,
+    "CLS": 0.005629909498742541,
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate"
+  }
+]

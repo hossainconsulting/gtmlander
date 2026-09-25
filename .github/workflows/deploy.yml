@@ -1,34 +1,24 @@
-name: Deploy to Production
-
+name: Release build (no deployment)
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
-
+permissions:
+  contents: read
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Use Node.js 20.x
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20.x
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Run final checks
-      run: |
-        npm run type-check || true
-        npm run lint || true
-        npm run build
-
-    - name: Log deployment completion
-      run: |
-        echo "✓ Deployment workflow completed"
-        echo "Environment: Production"
-        echo "Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run type-check
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npm run budget
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: dist/
