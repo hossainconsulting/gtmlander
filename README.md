@@ -53,3 +53,5 @@ The original [architecture outline](ARCHITECTURE.md) describes planned scope, no
 The existing Vercel integration deployed the prototype after [PR #1](https://github.com/hossainconsulting/gtmlander/pull/1) merged. [CI passed on the merge commit](https://github.com/hossainconsulting/gtmlander/actions/runs/36137462156). Deployment does not mean the planned lead-processing service is complete.
 
 OpenAI Codex assisted with the progressive Three.js Hero, CI repairs, automated validation, and evidence-based documentation. Hemayet Hossain directed the work and approved the merge. This documentation update records Codex co-authorship without changing historical commit attribution.
+
+Anthropic Claude Code also assisted with development and documentation under Hemayet's direction. Commits it co-authored carry a `Co-Authored-By: Claude` trailer.
